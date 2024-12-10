@@ -1,0 +1,16 @@
+name: K6 Test Error Replication
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          go install github.com/grafana/xk6-ts@latest
+          xk6 build --with github.com/grafana/xk6-ts@latest
+          go install github.com/szkiba/xk6-dotenv@latest
+          xk6 build --with github.com/szkiba/xk6-dotenv@latest
