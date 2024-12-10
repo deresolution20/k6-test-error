@@ -20,4 +20,4 @@ jobs:
       - name: Test custom k6 build
         run: |
           ./k6 version
-          ./k6 run --help
+          ./k6 --help
